@@ -23,8 +23,8 @@ copyright = "Code released under the Apache 2.0 license."
     title = "github"
     url = "https://github.com/ajanthan"
 [[params.social]]
-    title = "linkein"
-    url = "https://www.facebook.com/FACEBOOKHANDLE"
+    title = "linkedin"
+    url = "https://www.linkedin.com/in/ajanthanbalachandran"
 
 [[menu.main]]
   name = "home"
