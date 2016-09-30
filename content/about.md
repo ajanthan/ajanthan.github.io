@@ -4,7 +4,7 @@ menu = "main"
 title = "About"
 type = "about"
 weight = -190
-
+image = "/img/about.jpg"
 +++
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?
