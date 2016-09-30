@@ -1,5 +1,5 @@
-baseurl = "http://humboldtux.github.io"
-title = "Start Bootstrap Clean Blog"
+baseurl = "https://ajanthan.github.io"
+title = "All about what i do"
 canonifyurls = true
 paginate = 10
 theme = "startbootstrap-clean-blog"
@@ -7,23 +7,23 @@ languageCode = "en-us"
 copyright = "Code released under the Apache 2.0 license."
 
 [author]
-    name = "Benoît Benedetti"
+    name = "Ajanthan Balachandran"
 
 [params]
   DateForm = "Mon, Jan 2, 2006"
-  Description = "Your site description"
-  Author = "Benoît Benedetti"
-  email = "benoit.benedetti@gmail.com"
+  Description = "Personal Blog"
+  Author = "Ajanthan Balachandran"
+  email = "balaajanthan@gmail.com"
   Ganalytics = "XX-00000000-0"
 
 [[params.social]]
     title = "twitter"
-    url = "https://twitter.com/humboldtux"
+    url = "https://twitter.com/ajanthan_bkayts"
 [[params.social]]
     title = "github"
-    url = "https://github.com/humboldtux"
+    url = "https://github.com/ajanthan"
 [[params.social]]
-    title = "facebook"
+    title = "linkein"
     url = "https://www.facebook.com/FACEBOOKHANDLE"
 
 [[menu.main]]
