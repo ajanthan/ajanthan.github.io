@@ -1,5 +1,5 @@
 baseurl = "https://ajanthan.github.io"
-title = "All about what i do"
+title = "All about what i'm doing"
 canonifyurls = true
 paginate = 10
 theme = "startbootstrap-clean-blog"

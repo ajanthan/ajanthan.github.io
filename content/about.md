@@ -3,12 +3,17 @@ date = "2015-05-24T18:51:50+02:00"
 menu = "main"
 title = "About"
 type = "about"
-weight = -190
-image = "/img/about.jpg"
+weight = -170
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?
+Hi! I am Ajanthan.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!
+I am a Software Developer and nature lover.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.
+My primary intrests are security,identity/access management and cloud security. I develop software using Java and Golang.
+
+Currently i am working at [WSO2](http://wso2.com/) Inc,an opensource middleware provider. My role in the company is providing technical consultation to the customers
+to suceessfully develop and maitains solutions based on [WSO2 opensource technologies](http://wso2.com/platform).
+
+Thanks.
+

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>All about what i do</title>
+    <title>All about what i&#39;m doing</title>
     <link>https://ajanthan.github.io/tags/themes/index.xml</link>
-    <description>Recent content on All about what i do</description>
+    <description>Recent content on All about what i&#39;m doing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
@@ -1112,7 +1112,10 @@ $ vi themes/zafta/layouts/_default/single.html
       <pubDate>Sun, 24 May 2015 18:52:17 +0200</pubDate>
       
       <guid>https://ajanthan.github.io/post/post-02/</guid>
-      <description></description>
+      <description>
+
+&lt;h3 id=&#34;ajanthan&#34;&gt;Ajanthan&lt;/h3&gt;
+</description>
     </item>
     
     <item>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>All about what i do</title>
+    <title>All about what i&#39;m doing</title>
     <link>https://ajanthan.github.io/index.xml</link>
-    <description>Recent content on All about what i do</description>
+    <description>Recent content on All about what i&#39;m doing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
@@ -16,11 +16,16 @@
       <pubDate>Sun, 24 May 2015 18:51:50 +0200</pubDate>
       
       <guid>https://ajanthan.github.io/about/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?&lt;/p&gt;
+      <description>&lt;p&gt;Hi! I am Ajanthan.&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!&lt;/p&gt;
+&lt;p&gt;I am a Software Developer and nature lover.&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.&lt;/p&gt;
+&lt;p&gt;My primary intrests are security,identity/access management and cloud security. I develop software using Java and Golang.&lt;/p&gt;
+
+&lt;p&gt;Currently i am working at &lt;a href=&#34;http://wso2.com/&#34;&gt;WSO2&lt;/a&gt; Inc,an opensource middleware provider. My role in the company is providing technical consultation to the customers
+to suceessfully develop and maitains solutions based on &lt;a href=&#34;http://wso2.com/platform&#34;&gt;WSO2 opensource technologies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks.&lt;/p&gt;
 </description>
     </item>
     
@@ -30,11 +35,34 @@
       <pubDate>Sun, 24 May 2015 18:51:50 +0200</pubDate>
       
       <guid>https://ajanthan.github.io/projects/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?&lt;/p&gt;
+      <description>
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!&lt;/p&gt;
+&lt;h2 id=&#34;lightrest-https-github-com-ajanthan-lightrest&#34;&gt;&lt;a href=&#34;https://github.com/ajanthan/lightrest&#34;&gt;Lightrest&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.&lt;/p&gt;
+&lt;p&gt;This is a java library implementing subset of JAX-RS specification. I was frustrated with other libraries because of the size of the dependecies
+and complexity involving configuring it for different environments. I wanted to have a simple framework  with minimal size and little configurations
+to impliment simple REST service for platform testing purposes. So i have decided to write simple REST framework for java myself.&lt;/p&gt;
+
+&lt;p&gt;Project Source Code : &lt;a href=&#34;https://github.com/ajanthan/lightrest&#34;&gt;https://github.com/ajanthan/lightrest&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tmpfilesrv-https-github-com-ajanthan-tmpfilesrv&#34;&gt;&lt;a href=&#34;https://github.com/ajanthan/tmpFileSrv&#34;&gt;TmpFileSrv&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This a temprory file hosting web app written in Golang. This is usefull when you wanted to share a file with somebody and after some time you wanted to the
+file to be deleted automatically&lt;/p&gt;
+
+&lt;p&gt;Project Source Code : &lt;a href=&#34;https://github.com/ajanthan/tmpFileSrv&#34;&gt;https://github.com/ajanthan/tmpFileSrv&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;servicemix-oauth-proxy-https-github-com-ajanthan-servicemix-oauth-proxy&#34;&gt;&lt;a href=&#34;https://github.com/ajanthan/servicemix-oauth-proxy&#34;&gt;Servicemix Oauth Proxy&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;It is a servicemix proxy which can secure a service with Oauth2 using some Oauth2 provider(&lt;a href=&#34;http://wso2.com/products/identity-server/&#34;&gt;WSO2 Identity Server&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Project Source Code : &lt;a href=&#34;https://github.com/ajanthan/servicemix-oauth-proxy&#34;&gt;https://github.com/ajanthan/servicemix-oauth-proxy&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;heroku-jaggeryjs-app-runner-https-github-com-ajanthan-heroku-jaggeryjs-app-runner&#34;&gt;&lt;a href=&#34;https://github.com/ajanthan/heroku-jaggeryjs-app-runner&#34;&gt;Heroku Jaggeryjs App Runner&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;It provide a way to run &lt;a href=&#34;http://jaggeryjs.org/&#34;&gt;Jaggeryjs&lt;/a&gt; based application on &lt;a href=&#34;https://www.heroku.com/&#34;&gt;Heroku&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Source Code : &lt;a href=&#34;https://github.com/ajanthan/heroku-jaggeryjs-app-runner&#34;&gt;https://github.com/ajanthan/heroku-jaggeryjs-app-runner&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -1151,7 +1179,10 @@ $ vi themes/zafta/layouts/_default/single.html
       <pubDate>Sun, 24 May 2015 18:52:17 +0200</pubDate>
       
       <guid>https://ajanthan.github.io/post/post-02/</guid>
-      <description></description>
+      <description>
+
+&lt;h3 id=&#34;ajanthan&#34;&gt;Ajanthan&lt;/h3&gt;
+</description>
     </item>
     
     <item>
