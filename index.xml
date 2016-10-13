@@ -76,5 +76,55 @@ file to be deleted automatically&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://ajanthan.github.io/post/oct-11-2016/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ajanthan.github.io/post/oct-11-2016/</guid>
+      <description>
+
+&lt;p&gt;++
+image = &amp;ldquo;/img/about-bg.jpg&amp;rdquo;
+description = &amp;ldquo;This blog post describes setting up Facebook connector in Dex&amp;rdquo;
+draft = true
+date = &amp;ldquo;2016-10-11T15:46:18-07:00&amp;rdquo;
+title = &amp;ldquo;Configuring Facebook Connector in Dex&amp;rdquo;
+tags = [
+  &amp;ldquo;go&amp;rdquo;,
+  &amp;ldquo;golang&amp;rdquo;,
+  &amp;ldquo;templates&amp;rdquo;,
+  &amp;ldquo;themes&amp;rdquo;,
+  &amp;ldquo;development&amp;rdquo;,
+]
+categories = [
+  &amp;ldquo;Development&amp;rdquo;,
+  &amp;ldquo;Golang&amp;rdquo;,
+  &amp;ldquo;Dex&amp;rdquo;,
+]
++++&lt;/p&gt;
+
+&lt;h2 id=&#34;dex&#34;&gt;Dex&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;dex&lt;/code&gt; is a federated identity management solution. It provides OpenID Connect and Oauth 2.0 to end users. It can act as proxy for multiple identity providers as well can act as local identity provider. Connecting multiple identity providers is achived through conennector. It has connectors for well known identity providers such as github and bitbucket. But connector for well known social platform facbook was missing . I wanted to implements connector for facebook and contribute back to community.I have implemented and sent a pull request. It was recently merged to the project .In rest of the blog i am going to describe on how to configure and test dex facbook connector.&lt;/p&gt;
+
+&lt;h2 id=&#34;pre-requists&#34;&gt;Pre requists&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Setup dex with sample app.
+Please follow the getting started guide  to setup  dex.At the end you will have
+
+&lt;ul&gt;
+&lt;li&gt;dex-worker running on&lt;/li&gt;
+&lt;li&gt;dex-overlord running on&lt;/li&gt;
+&lt;li&gt;a sample app running on&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;a valid facebook account&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;registering-a-facebook-application-in-developer-facebook-com&#34;&gt;Registering a facebook application in developer.facebook.com&lt;/h2&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
