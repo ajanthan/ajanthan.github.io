@@ -2,7 +2,6 @@
 <html lang="en-us">
 
 <head>
-	<meta name="generator" content="Hugo 0.17-DEV" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>All about what i&#39;m doing -- All about what i&#39;m doing</title>
+    <title> -- All about what i&#39;m doing</title>
 
-    
-    <link href="https://ajanthan.github.io/index.xml" rel="alternate" type="application/rss+xml" title="All about what i&#39;m doing" />
-    <link href="https://ajanthan.github.io/index.xml" rel="feed" type="application/rss+xml" title="All about what i&#39;m doing" />
     
 
     
@@ -84,50 +80,79 @@
 
 
     
-    <header class="intro-header" style="background-image: url('https://ajanthan.github.io/img/home-bg.jpg')">
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-           <div class="site-heading">
-             <h1>All about what i&#39;m doing</h1>
-             <hr class="small">
-             <span class="subheading">Personal Blog</span>
+    
+    <header class="intro-header" style="background-image: url('https://ajanthan.github.io/img/post-bg.jpg')">
+    
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+             <div class="post-heading">
+               <h1></h1>
+               <h2 class="subheading"></h2>
+               <span class="meta">Posted by <a href="#">Ajanthan Balachandran</a> on Mon, Jan 1, 0001
+                 <br />
+                 In 
+
+                 <br />
+                 Tags 
+               </span>
+             </div>
            </div>
-         </div>
-       </div>
-     </div>
+        </div>
+      </div>
     </header>
 
     
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          
-                             <div class="post-preview">
-                 <a href="https://ajanthan.github.io/post/oct-11-2016/">
-                      <h2 class="post-title"></h2>
-                      <h3 class="post-subtitle"></h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Ajanthan Balachandran</a> on Mon, Jan 1, 0001
-                    <br />
-                    In 
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  
 
-                    <br />
-                    Tags 
-                  </p>
+<p>++
+image = &ldquo;/img/about-bg.jpg&rdquo;
+description = &ldquo;This blog post describes setting up Facebook connector in Dex&rdquo;
+draft = true
+date = &ldquo;2016-10-11T15:46:18-07:00&rdquo;
+title = &ldquo;Configuring Facebook Connector in Dex&rdquo;
+tags = [
+  &ldquo;go&rdquo;,
+  &ldquo;golang&rdquo;,
+  &ldquo;templates&rdquo;,
+  &ldquo;themes&rdquo;,
+  &ldquo;development&rdquo;,
+]
+categories = [
+  &ldquo;Development&rdquo;,
+  &ldquo;Golang&rdquo;,
+  &ldquo;Dex&rdquo;,
+]
++++</p>
+
+<h2 id="dex">Dex</h2>
+
+<p><code>dex</code> is a federated identity management solution. It provides OpenID Connect and Oauth 2.0 to end users. It can act as proxy for multiple identity providers as well can act as local identity provider. Connecting multiple identity providers is achived through conennector. It has connectors for well known identity providers such as github and bitbucket. But connector for well known social platform facbook was missing . I wanted to implements connector for facebook and contribute back to community.I have implemented and sent a pull request. It was recently merged to the project .In rest of the blog i am going to describe on how to configure and test dex facbook connector.</p>
+
+<h2 id="pre-requists">Pre requists</h2>
+
+<ul>
+<li>Setup dex with sample app.
+Please follow the getting started guide  to setup  dex.At the end you will have
+
+<ul>
+<li>dex-worker running on</li>
+<li>dex-overlord running on</li>
+<li>a sample app running on</li>
+</ul></li>
+<li>a valid facebook account</li>
+</ul>
+
+<h2 id="registering-a-facebook-application-in-developer-facebook-com">Registering a facebook application in developer.facebook.com</h2>
+
                 </div>
-                <hr>
-
-          
-          
-          <ul class="pager">
-            <li class="next">
-              <a href="https://ajanthan.github.io/post/">Older Posts &rarr;</a>
-            </li>
-          </ul>
+            </div>
         </div>
-      </div>
-    </div>
+    </article>
 
     <hr>
     
