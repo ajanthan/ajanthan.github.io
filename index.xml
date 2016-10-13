@@ -77,52 +77,119 @@ file to be deleted automatically&lt;/p&gt;
     </item>
     
     <item>
-      <title></title>
-      <link>https://ajanthan.github.io/post/oct-11-2016/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Configuring Facebook Connector in Dex</title>
+      <link>https://ajanthan.github.io/post/Configuring-Facebook-Connector-in-Dex/</link>
+      <pubDate>Wed, 12 Oct 2016 10:31:18 -0700</pubDate>
       
-      <guid>https://ajanthan.github.io/post/oct-11-2016/</guid>
+      <guid>https://ajanthan.github.io/post/Configuring-Facebook-Connector-in-Dex/</guid>
       <description>
-
-&lt;p&gt;++
-image = &amp;ldquo;/img/about-bg.jpg&amp;rdquo;
-description = &amp;ldquo;This blog post describes setting up Facebook connector in Dex&amp;rdquo;
-draft = true
-date = &amp;ldquo;2016-10-11T15:46:18-07:00&amp;rdquo;
-title = &amp;ldquo;Configuring Facebook Connector in Dex&amp;rdquo;
-tags = [
-  &amp;ldquo;go&amp;rdquo;,
-  &amp;ldquo;golang&amp;rdquo;,
-  &amp;ldquo;templates&amp;rdquo;,
-  &amp;ldquo;themes&amp;rdquo;,
-  &amp;ldquo;development&amp;rdquo;,
-]
-categories = [
-  &amp;ldquo;Development&amp;rdquo;,
-  &amp;ldquo;Golang&amp;rdquo;,
-  &amp;ldquo;Dex&amp;rdquo;,
-]
-+++&lt;/p&gt;
 
 &lt;h2 id=&#34;dex&#34;&gt;Dex&lt;/h2&gt;
 
-&lt;p&gt;&lt;code&gt;dex&lt;/code&gt; is a federated identity management solution. It provides OpenID Connect and Oauth 2.0 to end users. It can act as proxy for multiple identity providers as well can act as local identity provider. Connecting multiple identity providers is achived through conennector. It has connectors for well known identity providers such as github and bitbucket. But connector for well known social platform facbook was missing . I wanted to implements connector for facebook and contribute back to community.I have implemented and sent a pull request. It was recently merged to the project .In rest of the blog i am going to describe on how to configure and test dex facbook connector.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dex&lt;/code&gt; is a federated identity management solution. It provides OpenID Connect and OAuth 2.0 to end users. It can act as a proxy for multiple identity providers as well can act as a local identity provider. Connecting multiple identity providers is achieved through connectors. It has connectors for well-known identity providers such as GitHub and Bitbucket. But connector for well known social platform Facebook was missing . I wanted to implement connector for facebook and contribute back to the community.I have implemented and sent a pull request. It was recently merged into the project .In rest of the blog, i am going to describe on how to configure and test dex facebook connector.&lt;/p&gt;
 
 &lt;h2 id=&#34;pre-requists&#34;&gt;Pre requists&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Setup dex with sample app.
-Please follow the getting started guide  to setup  dex.At the end you will have
+&lt;li&gt;&lt;p&gt;Setup &lt;code&gt;dex&lt;/code&gt; with sample app using master branch.
+Please follow the &lt;a href=&#34;https://github.com/coreos/dex/blob/master/Documentation/getting-started.md&#34;&gt;getting started guide&lt;/a&gt; to setup &lt;code&gt;dex&lt;/code&gt;. At the end, you will have&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;dex-worker running on&lt;/li&gt;
-&lt;li&gt;dex-overlord running on&lt;/li&gt;
-&lt;li&gt;a sample app running on&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;a valid facebook account&lt;/li&gt;
+&lt;pre&gt;&lt;code&gt;* dex-worker running on [http://localhost:5556]
+* dex-overlord running on [https://localhost:5557]
+* a sample app running on [http://localhost:5555]
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A valid Facebook account&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;registering-a-facebook-application-in-developer-facebook-com&#34;&gt;Registering a facebook application in developer.facebook.com&lt;/h2&gt;
+&lt;h2 id=&#34;registering-facebook-app&#34;&gt;Registering Facebook App&lt;/h2&gt;
+
+&lt;p&gt;To configure the facebook connector for &lt;code&gt;dex&lt;/code&gt; we need the following information.
+ 
+* clientID: a &lt;code&gt;string&lt;/code&gt;. The Facebook App ID.
+* clientSecret: a &lt;code&gt;string&lt;/code&gt;. The Facebook App Secret.&lt;/p&gt;
+
+&lt;p&gt;In this section, I am going to guide you get above details from Facebook&lt;/p&gt;
+
+&lt;h4 id=&#34;step-1-logging-into-to-facebook-developer-portal&#34;&gt;Step 1 : Logging into to Facebook Developer Portal&lt;/h4&gt;
+
+&lt;p&gt;Goto &lt;a href=&#34;https://developers.facebook.com/&#34;&gt;https://developers.facebook.com/&lt;/a&gt; and log in using your credentials. If you have already created a Facebook developer account by agreeing to the Facebook terms and conditions, you are good to follow the step 2. Otherwise, you need to follow &lt;a href=&#34;https://developers.facebook.com/docs/apps/register&#34;&gt;facebook apps registering guide&lt;/a&gt; to register the Facebook app. Especially you need to follow step 2 in above guide.&lt;/p&gt;
+
+&lt;h4 id=&#34;step-2-creating-a-facebook-app&#34;&gt;Step 2 : Creating a Facebook App&lt;/h4&gt;
+
+&lt;p&gt;After successfully login to the Facebook developer portal now we are ready to create a Facebook app. Click on &lt;strong&gt;My Apps&lt;/strong&gt; on the top right corner of the developer portal header then there wil be a pop over window with list of apps already created and link to &lt;strong&gt;Create a New App&lt;/strong&gt;. Click on &lt;strong&gt;Create a New App&lt;/strong&gt; link to create new Facebook app then there will be a popover window to create new app id. Fill the Display name , contact email and category and then click &lt;strong&gt;Create App Id&lt;/strong&gt;  button. You need to fill a captcha before proceeding to create the app.&lt;/p&gt;
+
+&lt;h4 id=&#34;step-3-getting-clientid-and-client-secret&#34;&gt;Step 3: Getting ClientID and Client Secret&lt;/h4&gt;
+
+&lt;p&gt;After successfully creating the app you will be landing on a dashboard for an app that you just created. Click on &lt;strong&gt;Dashboard&lt;/strong&gt; tab in right side of the dashboard window. Now you can view app id and app secret that we needed for testing Facebook login with dex. The app secret is hidden by default you need to click on &lt;strong&gt;show&lt;/strong&gt; button to see the app secret. You may need to enter your Facebook credential after clicking the show button. Now we have&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;clientID: App ID.&lt;/li&gt;
+&lt;li&gt;clientSecret: App Secret.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even though we have the required details to configure dex facebook connector we need to do some more configuration in facebook developer portal to continue.&lt;/p&gt;
+
+&lt;h4 id=&#34;step-4-configuring-app-domain-and-platform-for-facebook-app&#34;&gt;Step 4 : Configuring App Domain and Platform for Facebook App&lt;/h4&gt;
+
+&lt;p&gt;On the left menu click &lt;strong&gt;Settings&lt;/strong&gt; to go to app settings page. Here we need to add the app domain and platform. App domain is the hostname of dex worker . Here we are running dex worker on localhost .Enter the &lt;code&gt;localhost&lt;/code&gt; in app domain field and press enter . Click &lt;strong&gt;Add Platform&lt;/strong&gt; then there will be a popover window to select a platform. Select website as the platform and there will be a new panel called &lt;strong&gt;Website&lt;/strong&gt;. In the website panel, enter dex URL in &lt;strong&gt;Site URL&lt;/strong&gt; field.Finally, click save button on the right bottom to save all the changes.&lt;/p&gt;
+
+&lt;h4 id=&#34;step-5-enable-oauth2-login-for-facebook-app&#34;&gt;Step 5 : Enable OAuth2 Login for Facebook App&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;dex&lt;/code&gt; Facebook connector uses OAuth2 protocol to authenticate users. We need to enable OAuth 2 setting in Facebook App.Click &lt;strong&gt;Add Product&lt;/strong&gt; link from left panel then you will be presented with the list of products available.From the list select &lt;strong&gt;Facebook Login&lt;/strong&gt; product.Configure following items in the window.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Client OAuth Login&lt;/code&gt; should be set to &lt;code&gt;Yes&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Web OAuth Login&lt;/code&gt; should be set to &lt;code&gt;Yes&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Valid OAuth redirect URIs&lt;/code&gt; should be set to in following format.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ISSUER_URL/auth/$CONNECTOR_ID/callback
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For example runnning a connector with ID &lt;code&gt;&amp;quot;facebook&amp;quot;&lt;/code&gt; and an issuer URL of &lt;code&gt;&amp;quot;http://localhost:5556/&amp;quot;&lt;/code&gt; the redirect would be.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://localhost:5556/auth/facebook/callback
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we are ready to test the Facebook login functionality.&lt;/p&gt;
+
+&lt;h2 id=&#34;configuring-facebook-connector&#34;&gt;Configuring Facebook Connector&lt;/h2&gt;
+
+&lt;p&gt;Make sure the dex worker and dex overlord are up and running. We need to create a JSON connector config and use dexctl command line tool to apply the configuration.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an example of a &lt;code&gt;facebook&lt;/code&gt; connector configuration; the clientID and clientSecret should be replaced by App ID and App Secret values from Step 3.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    {
+        &amp;quot;type&amp;quot;: &amp;quot;facebook&amp;quot;,
+        &amp;quot;id&amp;quot;: &amp;quot;facebook&amp;quot;,
+        &amp;quot;clientID&amp;quot;: &amp;quot;$DEX_FACEBOOK_CLIENT_ID&amp;quot;,
+        &amp;quot;clientSecret&amp;quot;: &amp;quot;$DEX_FACEBOOK_CLIENT_SECRET&amp;quot;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use the following command to apply the config.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat &amp;lt;&amp;lt; EOF &amp;gt; /tmp/dex_connectors.json
+[
+	{
+		&amp;quot;type&amp;quot;: &amp;quot;local&amp;quot;,
+		&amp;quot;id&amp;quot;: &amp;quot;local&amp;quot;
+	},
+	{
+         &amp;quot;type&amp;quot;: &amp;quot;facebook&amp;quot;,
+         &amp;quot;id&amp;quot;: &amp;quot;facebook&amp;quot;,
+         &amp;quot;clientID&amp;quot;: &amp;quot;$DEX_FACEBOOK_CLIENT_ID&amp;quot;,
+         &amp;quot;clientSecret&amp;quot;: &amp;quot;$DEX_FACEBOOK_CLIENT_SECRET&amp;quot;	
+       } 
+]
+EOF
+./bin/dexctl --db-url=$DEX_DB_URL set-connector-configs /tmp/dex_connectors.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;testing-facebook-login-in-sample-app&#34;&gt;Testing Facebook Login in Sample App&lt;/h2&gt;
+
+&lt;p&gt;Open &lt;a href=&#34;http://localhost:5555&#34;&gt;http://localhost:5555&lt;/a&gt; in a browser. Click &lt;code&gt;register&lt;/code&gt;and  choose&lt;code&gt;facebook&lt;/code&gt;.Enter your facebook credentials and authorize dex to retrieve your email address. After successful authentication, you should be able to view your claims returned by dex. It means you are now successfully logged into sample app through your Facebook account!!!&lt;/p&gt;
 </description>
     </item>
     
