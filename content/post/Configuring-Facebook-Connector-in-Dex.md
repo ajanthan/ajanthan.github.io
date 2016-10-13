@@ -2,7 +2,7 @@
 date = "2016-10-12T10:31:18-07:00"
 title = "Configuring Facebook Connector in Dex"
 description = "This blog post describes setting up Facebook connector in Dex"
-draft = true
+draft = false
 tags = [
   "go",
   "golang",
