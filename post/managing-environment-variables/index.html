@@ -9,11 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Posts -- All about what i&#39;m doing</title>
+    <title>Managing Environment Variables Using direnv -- All about what i&#39;m doing</title>
 
-    
-    <link href="https://ajanthan.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="All about what i&#39;m doing" />
-    <link href="https://ajanthan.github.io/post/index.xml" rel="feed" type="application/rss+xml" title="All about what i&#39;m doing" />
     
 
     
@@ -83,50 +80,87 @@
 
 
     
-    <header class="intro-header" style="background-image: url('https://ajanthan.github.io/img/home-bg.jpg')">
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-           <div class="site-heading">
-             <h1>Posts</h1>
-             <hr class="small">
-             <span class="subheading"></span>
+    
+    <header class="intro-header" style="background-image: url('https://ajanthan.github.io//img/defaulf-post-bg.jpg')">
+      
+      <div class="container">
+        <div class="row">
+           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+             <div class="post-heading">
+               <h1>Managing Environment Variables Using direnv</h1>
+               <h2 class="subheading">Direnv is a tool to manage environment variables per directory</h2>
+               <span class="meta">Posted by <a href="#">Ajanthan Balachandran</a> on Sun, Oct 16, 2016
+                 <br />
+                 In <a href="https://ajanthan.github.io/categories/productivity">Productivity</a>
+
+                 <br />
+                 Tags <a href="https://ajanthan.github.io/tags/direnv">direnv</a>, <a href="https://ajanthan.github.io/tags/environment-variable">environment variable</a>
+               </span>
+             </div>
            </div>
-         </div>
-       </div>
-     </div>
+        </div>
+      </div>
     </header>
 
     
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          
-                             <div class="post-preview">
-                  <p class="post-meta"><a href="https://ajanthan.github.io/post/managing-environment-variables/">Managing Environment Variables Using direnv</a> on Sun, Oct 16, 2016
-                    <br />
-                    In <a href="https://ajanthan.github.io/categories/productivity">Productivity</a>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  
 
-                    Tags <a href="https://ajanthan.github.io/tags/direnv">direnv</a>, <a href="https://ajanthan.github.io/tags/environment-variable">environment variable</a>
-                  </p>
-               </div>
+<h2 id="trouble-with-managing-environment-variables">Trouble with Managing Environment Variables</h2>
 
-          
-                             <div class="post-preview">
-                  <p class="post-meta"><a href="https://ajanthan.github.io/post/Configuring-Facebook-Connector-in-Dex/">Configuring Facebook Connector in Dex</a> on Wed, Oct 12, 2016
-                    <br />
-                    In <a href="https://ajanthan.github.io/categories/development">Development</a>, <a href="https://ajanthan.github.io/categories/golang">Golang</a>
+<p>In this container era, environment variables are the most used way of passing parameters. When you are going to try some software you may need to setup many environment variables. if you repeatedly going to setup things you may have to export environment variables repeatedly or you may have to write a script to export the required environment variables. In this case, <a href="https://direnv.net/">direnv</a> is the cool tool to help you to free from managing environment variables on your own.</p>
 
-                    Tags <a href="https://ajanthan.github.io/tags/go">go</a>, <a href="https://ajanthan.github.io/tags/golang">golang</a>, <a href="https://ajanthan.github.io/tags/templates">templates</a>, <a href="https://ajanthan.github.io/tags/themes">themes</a>, <a href="https://ajanthan.github.io/tags/development">development</a>
-                  </p>
-               </div>
+<h2 id="install-and-setup-direnv">Install and Setup <code>direnv</code></h2>
 
-          
-          
-    
+<p>Follow the guide in <a href="https://direnv.net/">home page of the project</a> to intall direnv and properly add a hook to your shell. For example i am using zsh shell.
+I have to add following to <code>~/.zshrc</code> file after installing binary.</p>
+
+<pre><code>eval &quot;$(direnv hook zsh)&quot;
+</code></pre>
+
+<h2 id="example-usage">Example Usage</h2>
+
+<p>Recently i happened to setup <a href="http://kubernetes.io/">kubernetes</a> using kubernetes local setup <a href="https://github.com/kubernetes/kubernetes/blob/master/docs/devel/running-locally.md">guide</a>.
+In the process of setting up a local cluster, I have to export following environment variables to modify the setup according to my requirement.</p>
+
+<pre><code>KUBE_ENABLE_CLUSTER_DNS=true
+API_HOST=172.17.42.1
+KUBELET_HOST=172.17.42.1
+HOSTNAME_OVERRIDE=172.17.42.1
+
+</code></pre>
+
+<p>First couple of times I have manually exported the variables. Then I have written a script and called the script before starting the setup script. I just realized I have many scripts likes this for each project I am working on. I was searching a way to automatically export  required variables when I <code>cd</code> into the project or something similar to ease my life. I found <code>direnv</code> .It was the  perfect candidate for my requirements.</p>
+
+<p>I have created <code>.envrc</code> file in kubernetes directory and added follwing contents to the file.</p>
+
+<pre><code>export KUBE_ENABLE_CLUSTER_DNS=true
+export API_HOST=172.17.42.1
+export KUBELET_HOST=172.17.42.1
+export HOSTNAME_OVERRIDE=172.17.42.1
+</code></pre>
+
+<p>First time i had to run following command to allow the <code>direnv</code> to securly configure the environment variables.</p>
+
+<pre><code>direnv allow .
+</code></pre>
+
+<p>After that when i <code>cd</code> into a folder the required environment variables were automatically exported.</p>
+
+<pre><code>➜  ~ cd go/src/k8s.io/kubernetes/
+direnv: loading .envrc
+direnv: export +API_HOST +HOSTNAME_OVERRIDE +KUBELET_HOST +KUBE_ENABLE_CLUSTER_DNS
+</code></pre>
+
+<p>I just descibed a single usecase.Please refer <code>Usage</code> from <a href="https://direnv.net/">direnv</a> project page for further usecases.</p>
+
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </article>
 
     <hr>
     

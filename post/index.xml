@@ -7,8 +7,66 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Code released under the Apache 2.0 license.</copyright>
-    <lastBuildDate>Wed, 12 Oct 2016 10:31:18 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 16 Oct 2016 22:35:06 -0700</lastBuildDate>
     <atom:link href="https://ajanthan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Managing Environment Variables Using direnv</title>
+      <link>https://ajanthan.github.io/post/managing-environment-variables/</link>
+      <pubDate>Sun, 16 Oct 2016 22:35:06 -0700</pubDate>
+      
+      <guid>https://ajanthan.github.io/post/managing-environment-variables/</guid>
+      <description>
+
+&lt;h2 id=&#34;trouble-with-managing-environment-variables&#34;&gt;Trouble with Managing Environment Variables&lt;/h2&gt;
+
+&lt;p&gt;In this container era, environment variables are the most used way of passing parameters. When you are going to try some software you may need to setup many environment variables. if you repeatedly going to setup things you may have to export environment variables repeatedly or you may have to write a script to export the required environment variables. In this case, &lt;a href=&#34;https://direnv.net/&#34;&gt;direnv&lt;/a&gt; is the cool tool to help you to free from managing environment variables on your own.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-and-setup-direnv&#34;&gt;Install and Setup &lt;code&gt;direnv&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Follow the guide in &lt;a href=&#34;https://direnv.net/&#34;&gt;home page of the project&lt;/a&gt; to intall direnv and properly add a hook to your shell. For example i am using zsh shell.
+I have to add following to &lt;code&gt;~/.zshrc&lt;/code&gt; file after installing binary.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;eval &amp;quot;$(direnv hook zsh)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;example-usage&#34;&gt;Example Usage&lt;/h2&gt;
+
+&lt;p&gt;Recently i happened to setup &lt;a href=&#34;http://kubernetes.io/&#34;&gt;kubernetes&lt;/a&gt; using kubernetes local setup &lt;a href=&#34;https://github.com/kubernetes/kubernetes/blob/master/docs/devel/running-locally.md&#34;&gt;guide&lt;/a&gt;.
+In the process of setting up a local cluster, I have to export following environment variables to modify the setup according to my requirement.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;KUBE_ENABLE_CLUSTER_DNS=true
+API_HOST=172.17.42.1
+KUBELET_HOST=172.17.42.1
+HOSTNAME_OVERRIDE=172.17.42.1
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First couple of times I have manually exported the variables. Then I have written a script and called the script before starting the setup script. I just realized I have many scripts likes this for each project I am working on. I was searching a way to automatically export  required variables when I &lt;code&gt;cd&lt;/code&gt; into the project or something similar to ease my life. I found &lt;code&gt;direnv&lt;/code&gt; .It was the  perfect candidate for my requirements.&lt;/p&gt;
+
+&lt;p&gt;I have created &lt;code&gt;.envrc&lt;/code&gt; file in kubernetes directory and added follwing contents to the file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export KUBE_ENABLE_CLUSTER_DNS=true
+export API_HOST=172.17.42.1
+export KUBELET_HOST=172.17.42.1
+export HOSTNAME_OVERRIDE=172.17.42.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First time i had to run following command to allow the &lt;code&gt;direnv&lt;/code&gt; to securly configure the environment variables.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;direnv allow .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After that when i &lt;code&gt;cd&lt;/code&gt; into a folder the required environment variables were automatically exported.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;➜  ~ cd go/src/k8s.io/kubernetes/
+direnv: loading .envrc
+direnv: export +API_HOST +HOSTNAME_OVERRIDE +KUBELET_HOST +KUBE_ENABLE_CLUSTER_DNS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I just descibed a single usecase.Please refer &lt;code&gt;Usage&lt;/code&gt; from &lt;a href=&#34;https://direnv.net/&#34;&gt;direnv&lt;/a&gt; project page for further usecases.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Configuring Facebook Connector in Dex</title>
